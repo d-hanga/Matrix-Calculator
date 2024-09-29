@@ -1,0 +1,29 @@
+.matrix-create-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+}
+
+.matrix-create-input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.matrix-create-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.matrix-create-button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,14 @@
+.inactive {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.unscrollable {
+    overflow: hidden;
+}
+
+.application {
+    position: relative; /* Make the parent div a positioned element */
+    width: 100%; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+}

@@ -1,0 +1,7 @@
+.matrix-edit-mode {
+    /* center it in the exact middle of the screen */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
