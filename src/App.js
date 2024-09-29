@@ -39,7 +39,9 @@ function App() {
     };
 
     const handleMatrixReset = () => {
-        setMatrices(DEFAULT_MATRICES);
+        if (matrices.size !== 0 && window.confirm("All matrices will be deleted.")) {
+            setMatrices(DEFAULT_MATRICES);
+        }
     }
 
     const handleMatrixCreation = (name, matrix) => {
@@ -56,8 +58,7 @@ function App() {
         setMatrices(new Map([...matrices, [name, matrix]]));
     }
 
-    // Activate edit mode whenever the name changes
-    useEditMode(edit, setEdit);
+    useEditMode(edit);
 
     return (
         <div className="application">
