@@ -1,4 +1,7 @@
 import "./style/App.css";
+
+import str2num from "./extras/convert2numifpossiple";
+
 import NormalView from "./components/NormalView";
 import { useEffect, useState } from 'react';
 import MatrixEditMode from "./components/MatrixEditMode";
@@ -16,7 +19,7 @@ function App() {
         useEffect(() => {
             const handleKeyDown = (e) => {
                 if (e.key === 'Escape') {
-                    deactivateEditMode(setEdit);
+                    resetEditMode();
                 }
             };
     
@@ -32,8 +35,21 @@ function App() {
             };
         }, [name]);
     };
-    
-    const deactivateEditMode = () => {
+
+    const deactivateEditMode = (changedmatrix) => {
+        document.body.classList.remove('unscrollable');
+        const integerized = Array.from({ length: changedmatrix.length }, () => Array(changedmatrix[0].length).fill(0));
+        for (let i = 0; i < integerized.length; i++) {
+            for (let j = 0; j < integerized[0].length; j++) {
+                integerized[i][j] = str2num(changedmatrix[i][j]);
+            }
+        }
+        console.log(integerized);
+        setEdit(null);
+        setMatrices(new Map([...matrices, [edit, integerized]]));
+    };
+
+    const resetEditMode = () => {
         document.body.classList.remove('unscrollable');
         setEdit(null);
     };
@@ -70,7 +86,7 @@ function App() {
                     handleMatrixReset={handleMatrixReset} 
                 />
             </div>
-            {edit && <MatrixEditMode deactivateEditMode={deactivateEditMode} name={edit} matrices={matrices} />}
+            {edit && <MatrixEditMode deactivateEditMode={deactivateEditMode} name={edit} matrix={matrices.get(edit)} />}
         </div>
     );
 }

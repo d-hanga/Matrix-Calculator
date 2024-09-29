@@ -1,7 +1,48 @@
 .matrix-edit-mode {
-    /* center it in the exact middle of the screen */
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.matrix-header {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Aligns items to the left */
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.matrix-name {
+    font-weight: bold;
+    margin-right: 20px; /* Adds space between name and matrix */
+}
+
+.matrix {
+    border: 1px solid black;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+.matrix td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.done-button {
+    cursor: pointer;
+    color: #007bff;
+    margin-top: 10px; /* Space between matrix and button */
 }
