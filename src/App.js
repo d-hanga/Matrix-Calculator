@@ -22,19 +22,20 @@ function App() {
                     resetEditMode();
                 }
             };
-    
-            document.addEventListener('keydown', handleKeyDown);
-            document.body.classList.add('unscrollable');
-            setEdit(name);
+
+            if (name) { // Only add the listener and class if in edit mode
+                document.addEventListener('keydown', handleKeyDown);
+                document.body.classList.add('unscrollable');
+            }
     
             // Cleanup function
             return () => {
                 document.removeEventListener('keydown', handleKeyDown);
                 document.body.classList.remove('unscrollable');
-                setEdit(null);
             };
         }, [name]);
     };
+    
 
     const deactivateEditMode = (changedmatrix) => {
         document.body.classList.remove('unscrollable');
