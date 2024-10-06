@@ -1,5 +1,7 @@
 - blur alerts instead of normal site-alerts (everything blurs, red text pops up e.g.)
 - export/import
+- put the dimensions div inside another one with the matrix div => so that you can center the dimensions perfectly on top of the matrix
+- auto-size for every input (except create-matrix)
 
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode
