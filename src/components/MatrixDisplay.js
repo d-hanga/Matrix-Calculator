@@ -7,9 +7,6 @@ function MatrixDisplay({ name, matrix, activateEditMode }) {
 
     return (
         <div className="full-matrix">
-            <div className="dimensions">
-                {matrix.length}x{matrix[0].length}
-            </div>
             <div className="matrix-header">
                 <div className="matrix-name">{name}</div>
                 <table className="matrix">

@@ -25,7 +25,5 @@
 }
 
 .matrix-create-button:hover {
-    /* background-color: #0056b3; */
-    background-color: white;
-    color: #007bff;
+    background-color: #0056b3;
 }
