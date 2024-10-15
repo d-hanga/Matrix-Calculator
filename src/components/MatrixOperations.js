@@ -7,12 +7,13 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
     const [matrix1, setMatrix1] = useState("");
     const [matrix2, setMatrix2] = useState("");
     const [result, setResult] = useState(null);
+    // const [operation, setOperation] = useState("<first operation>");
+    const [operation, setOperation] = useState("adition");
 
     const handleOperation = (e) => {
         e.preventDefault();
         console.log(matrices);
         console.log(matrix1, matrix2);
-        const operation = e.target.querySelector(".matrix-operations-choice").value;
         switch (operation) {
             case "addition":
                 setResult(addition(matrices.get(matrix1), matrices.get(matrix2)));
@@ -42,7 +43,7 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
         <div className="matrix-operations">
             {/* <h2>Matrix Operations</h2> */}
             <form onSubmit={handleOperation} className="matrix-operations__container">
-                <select className="matrix-operations-choice">
+                <select onChange={e => {e.preventDefault(); setOperation(e.target.value)}} className="matrix-operations-choice">
                     <option value="addition">Add</option>
                     <option value="subtraction">Subtract</option>
                     <option value="multiplication">Multiply</option>
