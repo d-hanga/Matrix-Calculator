@@ -1,5 +1,6 @@
 - blur alerts instead of normal site-alerts (everything blurs, red text pops up e.g.)
 - export/import
+- make name changable but then also !!!pay attention for the key!!!
 
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode

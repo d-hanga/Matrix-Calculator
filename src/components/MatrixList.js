@@ -6,7 +6,7 @@ function MatrixList({ activateEditMode, matrices }) {
     return (
         <div>
             {mapmap(matrices, (name, matrix) => (
-                <MatrixDisplay activateEditMode={activateEditMode} name={name} matrix={matrix} />
+                <MatrixDisplay activateEditMode={activateEditMode} name={name} matrix={matrix} key={name} />
             ))}
         </div>
     );
