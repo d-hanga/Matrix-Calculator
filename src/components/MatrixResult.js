@@ -1,14 +1,14 @@
-import "../style/MatrixDisplay.css";
+import "../style/MatrixResult.css";
 
-function MatrixDisplay({ name, matrix, activateEditMode }) {
+function MatrixResult({ matrix, saveMatrix }) {
     const handleClick = (event) => {
-        activateEditMode(name);
+        saveMatrix(prompt("Enter the name of the matrix: "));
     }
     return (
-        <div className="full-matrix">
-            <div className="matrix-header">
-                <div className="matrix-name">{name}</div>
-                <table className="matrix">
+        <div className="full-result-matrix">
+            <div className="result-matrix-header">
+                <div className="result-matrix-name">{"result"}</div>
+                <table className="result-matrix">
                     <tbody>
                     {matrix.map((row, i) => (
                         <tr key={i}>
@@ -20,7 +20,7 @@ function MatrixDisplay({ name, matrix, activateEditMode }) {
                     </tbody>
                 </table>
             </div>
-            <button className="matrix-edit-button" onClick={handleClick}>Edit</button>
+            <button className="result-matrix-save-button" onClick={handleClick}>Save</button>
         </div>
     );
 }
@@ -33,4 +33,4 @@ function MatrixDisplay({ name, matrix, activateEditMode }) {
 // tr is a HTML element that defines a row in a table.
 // td is a HTML element that defines a cell in a table.
 
-export default MatrixDisplay;
+export default MatrixResult;

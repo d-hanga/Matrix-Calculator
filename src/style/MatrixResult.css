@@ -1,0 +1,44 @@
+.full-result-matrix {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.result-matrix-header {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Aligns items to the left */
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.result-matrix-name {
+    font-weight: bold;
+    margin-right: 20px; /* Adds space between name and result-matrix */
+}
+
+.result-matrix {
+    border: 1px solid black;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+.result-matrix td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.result-matrix-save-button {
+    cursor: pointer;
+    color: #007bff;
+    margin-top: 10px; /* Space between result-matrix and button */
+}
