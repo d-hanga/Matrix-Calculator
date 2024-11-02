@@ -2,8 +2,8 @@
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    border-radius: 35px;
     margin-bottom: 20px;
     padding: 10px;
     margin: 10px;
@@ -24,9 +24,12 @@
 }
 
 .matrix {
-    border: 1px solid black;
-    border-radius: 5px;
-    border-collapse: collapse;
+    border-radius: 10px; /* this only rounds the div (and box), not the border */
+    box-shadow: 0 0 1px rgba(0, 0, 0, 1);
+    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .matrix td {
@@ -37,8 +40,30 @@
     padding: 0;
 }
 
-.matrix-edit-button {
+.matrix-something-button {
     cursor: pointer;
-    color: #007bff;
-    margin-top: 10px; /* Space between matrix and button */
+    color: blue; /* Font color blue */
+    background-color: white; /* Background color white */
+    transition: color 0.1s ease, background-color 0.3s ease; /* Smooth transition for color and background color change */
+    border: 1px solid blue; /* Add border to match font color */
+    padding: 3px 8px; /* Add some padding for better appearance */
+    border-radius: 5px; /* Add border radius for rounded corners */
 }
+
+.matrix-something-button:hover {
+    color: white; /* Font color white on hover */
+    background-color: blue; /* Background color blue on hover */
+}
+
+.matrix-w-dim {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin: 10px;
+    background-color: white;
+}
+

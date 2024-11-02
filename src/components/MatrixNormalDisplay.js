@@ -1,12 +1,11 @@
-import "../style/MatrixResult.css";
 import MatrixDisplay from "./MatrixDisplay";
 
-function MatrixResult({ matrix, saveMatrix }) {
-    const handleClick = (e) => {
-        saveMatrix(prompt("Enter the name of the matrix: "), matrix);
+function MatrixNormalDisplay({ name, matrix, activateEditMode }) {
+    const handleClick = (event) => {
+        activateEditMode(name);
     }
     return (
-        <MatrixDisplay name="Result" matrix={matrix} buttonFunctioning={handleClick} buttonName="Save" />
+        <MatrixDisplay name={name} matrix={matrix} buttonFunctioning={handleClick} buttonName="Edit" />
     );
 }
 
@@ -18,4 +17,4 @@ function MatrixResult({ matrix, saveMatrix }) {
 // tr is a HTML element that defines a row in a table.
 // td is a HTML element that defines a cell in a table.
 
-export default MatrixResult;
+export default MatrixNormalDisplay;

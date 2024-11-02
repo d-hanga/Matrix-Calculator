@@ -21,11 +21,11 @@ function MatrixEditMode({ deactivateEditMode, matrix, name}) {
 
 
     return (
-        <div className="matrix-edit-mode">
+        <div className="matrix-edit-edit-mode">
             <form onSubmit={handleSubmit}>
-                <div className="matrix-header">
-                    <div className="matrix-name">{name}</div>
-                    <table className="matrix">
+                <div className="matrix-edit-header">
+                    <div className="matrix-edit-name">{name}</div>
+                    <table className="matrix-edit">
                         <tbody>
                         {matrix.map((row, i) => (
                             <tr key={i}>

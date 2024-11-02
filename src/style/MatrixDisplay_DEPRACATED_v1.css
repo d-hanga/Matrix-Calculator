@@ -1,4 +1,4 @@
-.matrix-edit-edit-mode {
+.full-matrix {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -8,13 +8,9 @@
     padding: 10px;
     margin: 10px;
     background-color: white;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
-.matrix-edit-header {
+.matrix-header {
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: flex-start; /* Aligns items to the left */
@@ -22,18 +18,18 @@
     margin-bottom: 10px;
 }
 
-.matrix-edit-name {
+.matrix-name {
     font-weight: bold;
-    margin-right: 20px; /* Adds space between name and matrix-edit */
+    margin-right: 20px; /* Adds space between name and matrix */
 }
 
-.matrix-edit {
+.matrix {
     border: 1px solid black;
     border-radius: 5px;
     border-collapse: collapse;
 }
 
-.matrix-edit td {
+.matrix td {
     width: 50px;
     height: 50px;
     text-align: center;
@@ -41,8 +37,8 @@
     padding: 0;
 }
 
-.done-button {
+.matrix-edit-button {
     cursor: pointer;
     color: #007bff;
-    margin-top: 10px; /* Space between matrix-edit and button */
+    margin-top: 10px; /* Space between matrix and button */
 }
