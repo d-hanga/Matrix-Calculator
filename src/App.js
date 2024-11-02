@@ -45,7 +45,6 @@ function App() {
                 integerized[i][j] = str2num(changedmatrix[i][j]);
             }
         }
-        console.log(integerized);
         setEdit(null);
         setMatrices(new Map([...matrices, [edit, integerized]]));
     };
@@ -62,6 +61,7 @@ function App() {
     }
 
     const handleMatrixCreation = (name, matrix) => {
+        console.log(matrix)
         if (matrices.has(name)) {
             alert("Matrix already exists");
             return;
@@ -71,7 +71,7 @@ function App() {
             alert("Matrix name cannot be empty");
             return;
         }
-
+        
         setMatrices(new Map([...matrices, [name, matrix]]));
     }
 

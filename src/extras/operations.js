@@ -73,3 +73,6 @@ function transposition(A) {
 
 // export { add, subtract, multiply, inverse, division, transpose };
 module.exports = { addition, subtraction, multiplication, inversion, division, transposition };
+
+
+

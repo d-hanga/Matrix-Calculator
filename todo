@@ -8,13 +8,32 @@
 - key doesn't work
 - create form around buttons
 - add alert after editing if not already
-
+- make dropdownboxes be able to type into
+- in the calculation breaker: just check if I and T are included, and then just do both in any reihenfolge, so you dont have to check 4 cases, but just 2 (=> check if A.T^(-1) = A^(-1).T)
+  => then only check if T and I are on the end
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode
 
 
 
 fix:
+"""
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.
+"""
+
+
+
+
 """
 One of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without

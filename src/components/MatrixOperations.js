@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../style/MatrixOperations.css";
+import operationbreaker from "../extras/str2linalgcalculation"
 import { addition, subtraction, multiplication, inversion, division, transposition } from "../extras/operations";
 import MatrixDisplay from "./MatrixDisplay";
 import MatrixResult from "./MatrixResult";
@@ -10,13 +11,10 @@ function MatrixOperations({ matrices, handleMatrixCreation, saveMatrix }) {
     const [result, setResult] = useState("");
     // const [operation, setOperation] = useState("<first operation>");
     const [operation, setOperation] = useState("");
+    const [formula, setFormula] = useState("")
 
     const handleOperation = (e) => {
         e.preventDefault();
-        console.log("m1:");
-        console.log(matrix1);
-        console.log("m2:");
-        console.log(matrix2);
         if (matrix1 !== "" && matrix2 !== "" && operation !== "") {
             switch (operation) {
                 case "addition":
@@ -35,25 +33,20 @@ function MatrixOperations({ matrices, handleMatrixCreation, saveMatrix }) {
                     break;
             }
         }
-        console.log(" ");
     }
 
 
     const handleSave = () => {
+        console.log(result);
         handleMatrixCreation("result", result);
     }
 
 
     let matrixnames = [];
     for (let [key, value] of matrices) {
-        // matrixnames.push(<option key={key} value={key}>{key}</option>);
         matrixnames.push(<option value={key}>{key}</option>);
     }
 
-
-    console.log("result:");
-    console.log(result);
-    console.log(" ");
 
     return (
         <div className="matrix-operations">
@@ -80,6 +73,9 @@ function MatrixOperations({ matrices, handleMatrixCreation, saveMatrix }) {
                 </select>
                 <button onClick={handleOperation} className="matrix-operations__button">Calculate</button>
             </div>
+            <form onSubmit={e => {e.preventDefault(); const gg = operationbreaker(formula, matrices); console.log(gg); setResult(gg);}}>
+                <input onChange={e => {setFormula(e.target.value)}} value={formula} />
+            </form>
             {result && 
                 (<MatrixResult saveMatrix={saveMatrix} matrix={result} activateEditMode={handleSave} className="matrix-operations__result" />)}
         </div>

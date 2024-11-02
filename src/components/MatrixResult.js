@@ -1,8 +1,8 @@
 import "../style/MatrixResult.css";
 
 function MatrixResult({ matrix, saveMatrix }) {
-    const handleClick = (event) => {
-        saveMatrix(prompt("Enter the name of the matrix: "));
+    const handleClick = (e) => {
+        saveMatrix(prompt("Enter the name of the matrix: "), matrix);
     }
     return (
         <div className="full-result-matrix">
