@@ -21,10 +21,13 @@ function MatrixEditMode({ deactivateEditMode, matrix, name}) {
 
 
     return (
-        <div className="matrix-edit-edit-mode">
-            <form onSubmit={handleSubmit}>
-                <div className="matrix-edit-header">
-                    <div className="matrix-edit-name">{name}</div>
+        <form className="matrix-edit-mode" onSubmit={handleSubmit}>
+            <div className="matrix-edit-header">
+                <div className="matrix-edit-name">{name}</div>
+                <div className="matrix-edit-w-dim">
+                    <div className="matrix-edit-dimension">
+                            {matrix.length}x{matrix[0].length}
+                    </div>
                     <table className="matrix-edit">
                         <tbody>
                         {matrix.map((row, i) => (
@@ -37,9 +40,9 @@ function MatrixEditMode({ deactivateEditMode, matrix, name}) {
                         </tbody>
                     </table>
                 </div>
-                <button className="done-button">Done</button>
-            </form>
-        </div>
+            </div>
+            <button className="done-button">Done</button>
+        </form>
     );
 }
 
