@@ -1,3 +1,4 @@
+- dont make grid, copy the css from the image-query-searcher with matrices
 - blur alerts instead of normal site-alerts (everything blurs, red text pops up e.g.)
 - export/import
 - make name changable but then also !!!pay attention for the key!!!
