@@ -1,17 +1,15 @@
 import { useState } from "react";
 import "../style/MatrixOperations.css";
-import operationbreaker from "../extras/str2linalgcalculation"
-import { addition, subtraction, multiplication, inversion, division, transposition } from "../extras/operations";
-import MatrixDisplay from "./MatrixDisplay";
+import operationbreaker from "../extras/str2linalgcalculation";
+import { addition, subtraction, multiplication, division } from "../extras/operations";
 import MatrixResult from "./MatrixResult";
 
-function MatrixOperations({ matrices, handleMatrixCreation, saveMatrix }) {
+function MatrixOperations({ matrices, handleMatrixCreation }) {
     const [matrix1, setMatrix1] = useState("");
     const [matrix2, setMatrix2] = useState("");
     const [result, setResult] = useState("");
-    // const [operation, setOperation] = useState("<first operation>");
     const [operation, setOperation] = useState("");
-    const [formula, setFormula] = useState("")
+    const [formula, setFormula] = useState("");
 
     const handleOperation = (e) => {
         e.preventDefault();
@@ -33,51 +31,48 @@ function MatrixOperations({ matrices, handleMatrixCreation, saveMatrix }) {
                     break;
             }
         }
-    }
-
+    };
 
     const handleSave = () => {
         console.log(result);
         handleMatrixCreation("result", result);
-    }
-
+    };
 
     let matrixnames = [];
     for (let [key, value] of matrices) {
         matrixnames.push(<option value={key}>{key}</option>);
     }
 
-
     return (
         <div className="matrix-operations">
-            {/* <h2>Matrix Operations</h2> */}
-            {/* remove form, bc form happens even if only choice!!!!! */}
-            <div className="matrix-operations__container">
-                <select value={operation} onChange={e => {e.preventDefault(); setOperation(e.target.value)}} className="matrix-operations-choice">
-                    <option value={""} disabled>Operation</option>
-                    <option value="-------" disabled>---------</option>
-                    <option value="addition">Add</option>
-                    <option value="subtraction">Subtract</option>
-                    <option value="multiplication">Multiply</option>
-                    <option value="division">Divide</option>
-                </select>
-                <select value={matrix1} onChange={(e) => setMatrix1(e.target.value)} className="matrix-input-1" >
-                    <option value={""} disabled>1st Matrix</option>
-                    <option value="-------" disabled>---------</option>
-                    {matrixnames}
-                </select>
-                <select value={matrix2} onChange={(e) => setMatrix2(e.target.value)} className="matrix-input-2" >
-                    <option value={""} disabled>2nd Matrix</option>
-                    <option value="-------" disabled>---------</option>
-                    {matrixnames}
-                </select>
-                <button onClick={handleOperation} className="matrix-operations__button">Calculate</button>
+            <div className="all-operations">
+                <div className="matrix-operations__container">
+                    <select value={operation} onChange={e => {e.preventDefault(); setOperation(e.target.value)}} className="matrix-operations-choice">
+                        <option value={""} disabled>Operation</option>
+                        <option value="-------" disabled>---------</option>
+                        <option value="addition">Add</option>
+                        <option value="subtraction">Subtract</option>
+                        <option value="multiplication">Multiply</option>
+                        <option value="division">Divide</option>
+                    </select>
+                    <select value={matrix1} onChange={(e) => setMatrix1(e.target.value)} className="matrix-input-1" >
+                        <option value={""} disabled>1st Matrix</option>
+                        <option value="-------" disabled>---------</option>
+                        {matrixnames}
+                    </select>
+                    <select value={matrix2} onChange={(e) => setMatrix2(e.target.value)} className="matrix-input-2" >
+                        <option value={""} disabled>2nd Matrix</option>
+                        <option value="-------" disabled>---------</option>
+                        {matrixnames}
+                    </select>
+                    <button onClick={handleOperation} className="matrix-operations__button">Calculate</button>
+                </div>
+                <form className="operation-input" onSubmit={e => {e.preventDefault(); const gg = operationbreaker(formula, matrices); console.log(gg); setResult(gg);}}>
+                    <input onChange={e => {setFormula(e.target.value)}} value={formula} />
+                </form>
             </div>
-            <form onSubmit={e => {e.preventDefault(); const gg = operationbreaker(formula, matrices); console.log(gg); setResult(gg);}}>
-                <input onChange={e => {setFormula(e.target.value)}} value={formula} />
-            </form>
             {result && 
-                (<MatrixResult saveMatrix={saveMatrix} matrix={result} activateEditMode={handleSave} className="matrix-operations__result" />)}
+                (<MatrixResult handleMatrixCreation={handleMatrixCreation} matrix={result} activateEditMode={handleSave} className="matrix-operations__result" />)}
         </div>
     );
 }

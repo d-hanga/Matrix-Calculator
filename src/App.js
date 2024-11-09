@@ -103,17 +103,12 @@ function App() {
         setMatrices(new Map([...matrices, [name, matrix]]));
     }
 
-    const saveMatrix = (name, matrix) => {
-        handleMatrixCreation(name, matrix)
-    }
-
     useEditMode(edit);
 
     return (
         <div className="application">
             <div className={edit ? "inactive" : "active"}>
                 <NormalView 
-                    saveMatrix={saveMatrix}
                     activateEditMode={setEdit} 
                     matrices={matrices} 
                     handleMatrixCreation={handleMatrixCreation} 

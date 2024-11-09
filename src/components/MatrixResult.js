@@ -1,9 +1,9 @@
 import "../style/MatrixResult.css";
 import MatrixDisplay from "./MatrixDisplay";
 
-function MatrixResult({ matrix, saveMatrix }) {
+function MatrixResult({ matrix, handleMatrixCreation }) {
     const handleClick = (e) => {
-        saveMatrix(prompt("Enter the name of the matrix: "), matrix);
+        handleMatrixCreation(prompt("Enter the name of the matrix: "), matrix);
     }
     return (
         <MatrixDisplay name="Result" matrix={matrix} buttonFunctioning={handleClick} buttonName="Save" />

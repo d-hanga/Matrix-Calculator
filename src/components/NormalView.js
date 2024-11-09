@@ -8,7 +8,7 @@ function NormalView({ activateEditMode, matrices, handleMatrixCreation, handleMa
         <div>
             <MatrixList activateEditMode={activateEditMode} matrices={matrices} />
             <MatricesHandling handleMatrixReset={handleMatrixReset} handleMatrixCreation={handleMatrixCreation} />
-            <MatrixOperations saveMatrix={saveMatrix} handleMatrixCreation={handleMatrixCreation} matrices={matrices} />
+            <MatrixOperations handleMatrixCreation={handleMatrixCreation} matrices={matrices} />
         </div>
     );
 }

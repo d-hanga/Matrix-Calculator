@@ -14,6 +14,9 @@
 - whereever statechange and passing happens: dont pass anymore, instead write normal code which is executed when any change happens
 - add when doing this to a matrix: 1x3 => 1x1 => 1x3 the last data still remains => matrix stays intact
 - control tabs
+- make shadow around matrix-edit-w-dim (shadow was cut off)
+- do this: name + matrix and when it overflows keep it there above the matrix-scrolling thing +++ name should be closer, which now doesnt happen, bc the dimeensions take too much place and its like this <name> + (<dimensions> + <matrix>)
+- add export/import
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode
 

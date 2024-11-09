@@ -7,57 +7,68 @@
     border-radius: 35px;
     padding: 10px;
     background-color: white;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start; /* Adjust to allow for scrollable content */
+    width: 80vw;
+    max-height: 80vh;
+    overflow: auto; /* Allow scrolling for the entire matrix-edit-mode */
+}
+
+.scrollable-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Allow for more content to be placed vertically */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-width: 100%; /* Limits width to container */
+    max-height: 100%; /* Limits height to container */
+    margin-top: 20px; /* Space between the name and the matrix */
 }
 
 .done-button {
     cursor: pointer;
-    color: blue; /* Font color blue */
-    background-color: white; /* Background color white */
-    transition: color 0.1s ease, background-color 0.3s ease; /* Smooth transition for color and background color change */
-    border: 1px solid blue; /* Add border to match font color */
-    padding: 3px 8px; /* Add some padding for better appearance */
-    border-radius: 5px; /* Add border radius for rounded corners */
+    color: blue;
+    background-color: white;
+    transition: color 0.1s ease, background-color 0.3s ease;
+    border: 1px solid blue;
+    padding: 3px 8px;
+    border-radius: 5px;
 }
 
 .done-button:hover {
-    color: white; /* Font color white on hover */
-    background-color: blue; /* Background color blue on hover */
+    color: white;
+    background-color: blue;
 }
 
 .edit-matrix input {
-    border: none; /* Remove border */
+    border: none;
     border-radius: 5px;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2); /* Add weak shadow box */
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
 }
-
 
 .matrix-edit-header {
     display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: flex-start; /* Aligns items to the left */
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
     margin-bottom: 10px;
 }
 
 .matrix-edit-name {
     font-weight: bold;
-    margin-right: 20px; /* Adds space between name and matrix-edit */
+    margin-right: 20px;
 }
 
 .matrix-edit {
-    border-radius: 10px; /* this only rounds the div (and box), not the border */
-    box-shadow: 0 0 1px rgba(0, 0, 0, 1);
-    margin-bottom: 15px;
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 20px; /* Adds space at the top of the matrix */
 }
 
 .matrix-edit td {
-    width: auto; /* Adjust width automatically */
     height: 50px;
     text-align: center;
     vertical-align: middle;
@@ -65,23 +76,64 @@
 }
 
 .matrix-edit td input {
-    width: auto; /* Adjust width automatically */
-    height: 100%; /* Match the height of the td */
+    height: 100%;
     text-align: center;
-    border: none; /* Remove border */
+    border: none;
     border-radius: 5px;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2); /* Add weak shadow box */
-    padding: 0 5px; /* Add some padding */
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+    padding: 0 5px;
 }
 
 .matrix-edit-w-dim {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px; /* Increases space between dimensions and matrix */
     padding: 10px;
-    margin: 10px;
     background-color: white;
+    width: fit-content;
+    position: relative;
+    z-index: 10; /* Ensure it's above other content */
+}
+
+
+.matrix-edit-dimension {
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content; /* Ensure the width fits the content */
+}
+
+.matrix-edit-dimension input {
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    text-align: center; /* Default to center alignment */
+    padding: 5px;
+    margin: 0 5px; /* Add spacing between inputs */
+    width: 100%; /* Allow width to adjust based on content */
+    min-width: 50px; /* Set a minimum width to avoid shrinking too much */
+    max-width: 150px; /* Max width to prevent extreme stretching */
+}
+
+/* Dimension input 1 - Right-aligned, extends left */
+.matrix-edit-dimension .matrix-edit-dimension-1 {
+    text-align: right;  /* Right-align the text */
+    padding-right: 10px;  /* Add padding to the right to prevent text from touching the edge */
+    flex-grow: 1;  /* Allow it to grow and take up available space */
+    min-width: 50px;  /* Minimum width to prevent shrinking too much */
+    max-width: 150px;  /* Maximum width to prevent excessive stretching */
+}
+
+/* Dimension input 2 - Left-aligned, extends right */
+.matrix-edit-dimension .matrix-edit-dimension-2 {
+    text-align: left;  /* Left-align the text */
+    padding-left: 10px;  /* Add padding to the left to prevent text from touching the edge */
+    flex-grow: 1;  /* Allow it to grow and take up available space */
+    min-width: 50px;  /* Minimum width to prevent shrinking too much */
+    max-width: 150px;  /* Maximum width to prevent excessive stretching */
 }
