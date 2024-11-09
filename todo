@@ -11,6 +11,8 @@
 - make dropdownboxes be able to type into
 - in the calculation breaker: just check if I and T are included, and then just do both in any reihenfolge, so you dont have to check 4 cases, but just 2 (=> check if A.T^(-1) = A^(-1).T)
   => then only check if T and I are on the end
+- whereever statechange and passing happens: dont pass anymore, instead write normal code which is executed when any change happens
+- add when doing this to a matrix: 1x3 => 1x1 => 1x3 the last data still remains => matrix stays intact
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode
 

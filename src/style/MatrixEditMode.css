@@ -27,7 +27,7 @@
     background-color: blue; /* Background color blue on hover */
 }
 
-input {
+.edit-matrix input {
     border: none; /* Remove border */
     border-radius: 5px;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.2); /* Add weak shadow box */

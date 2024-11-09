@@ -6,14 +6,42 @@ import NormalView from "./components/NormalView";
 import { useEffect, useState } from 'react';
 import MatrixEditMode from "./components/MatrixEditMode";
 
-const DEFAULT_MATRICES = new Map([]);
+// const DEFAULT_MATRICES = new Map([]);
+const DEFAULT_MATRICES = new Map([
+    ["A", [
+            [1],
+            [4]
+        ]
+    ],
+    ["B", [
+            [1, 4]
+        ]
+    ],
+    ["C", [
+            [1, 4],
+            [2, 5],
+            [3, 6]
+        ]
+    ],
+    ["D", [
+            [1, 4],
+            [2, 5],
+            [3, 6],
+            [1, 4],
+            [2, 5],
+            [3, 6],
+            [1, 4],
+            [2, 5],
+            [3, 6]
+        ]
+    ]
+]);
 
 
 
 function App() {
     const [edit, setEdit] = useState(null);
     const [matrices, setMatrices] = useState(DEFAULT_MATRICES);
-
 
     const useEditMode = (name) => {
         useEffect(() => {
