@@ -13,6 +13,7 @@
   => then only check if T and I are on the end
 - whereever statechange and passing happens: dont pass anymore, instead write normal code which is executed when any change happens
 - add when doing this to a matrix: 1x3 => 1x1 => 1x3 the last data still remains => matrix stays intact
+- control tabs
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode
 
