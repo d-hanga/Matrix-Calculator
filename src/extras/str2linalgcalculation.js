@@ -58,9 +58,11 @@ function combinearrays(arr1, arr2) {
     return newarr
 }
 
+
+
 function operationbreaker(raw, matrices) {
-    console.log(raw)
-    console.log(matrices)
+    // console.log(raw)
+    // console.log(matrices)
     const rawstripped = raw.replace(" ", "");
     let bracketsstart = false
     let foundoperations = []
@@ -80,7 +82,7 @@ function operationbreaker(raw, matrices) {
                 params[params.length-1] += rawstripped[i]
             }
         }  else if (operations[rawstripped[i]] !== undefined) {
-            lasts[operationpriorities[rawstripped[i]]] = i;
+            lasts[operationpriorities[rawstripped[i]]] = foundoperations.length;
             foundoperations.push(rawstripped[i])
             params.push("")
         } else if (rawstripped[i] !== ")" && rawstripped[i] !== "(") {
@@ -97,32 +99,45 @@ function operationbreaker(raw, matrices) {
     // make cases: for plus/minus, mul/div, and selfoperations down here for nicer sorting shiiiii
     for (let i = 0; i < amount_operationpriorities; i++) {
         if (lasts[i] !== null) {
-            console.log(
-                params
-                    .slice(0, params.length-1),
-                foundoperations
-                .slice(0, foundoperations.length-1),
-                params
-                    .slice(params.length-1),
-                foundoperations
-                    .slice(foundoperations.length)
-            )
-            return operations[foundoperations[foundoperations.length-1]](
+            // console.log(
+            //     params
+            //         .slice(0, params.length-1),
+            //     foundoperations
+            //     .slice(0, foundoperations.length-1),
+            //     params
+            //         .slice(params.length-1),
+            //     foundoperations
+            //         .slice(foundoperations.length)
+            // )
+            const a = [
+                        params
+                            .slice(0, lasts[i] + 1),
+                        foundoperations
+                            .slice(0, lasts[i])
+                    ]
+            const b = [
+                    params
+                        .slice(lasts[i]+1),
+                    foundoperations
+                        .slice(lasts[i]+1)
+                ]
+
+            return operations[foundoperations[lasts[i]]](
                 operationbreaker(
                     combinearrays(
                         params
-                            .slice(0, params.length-1),
+                            .slice(0, lasts[i] + 1),
                         foundoperations
-                            .slice(0, foundoperations.length-1)
+                            .slice(0, lasts[i])
                     ).join(""),
                     matrices
                 ),
                 operationbreaker(
                     combinearrays(
                         params
-                            .slice(params.length-1),
+                            .slice(lasts[i]+1),
                         foundoperations
-                            .slice(foundoperations.length)
+                            .slice(lasts[i]+1)
                     ).join(""),
                     matrices
                 )
@@ -175,5 +190,50 @@ function operationbreaker(raw, matrices) {
 //     )
 // ))
 
+const a = new Map([
+    ["A", [
+            [1],
+            [4]
+        ]
+    ],
+    ["B", [
+            [1, 4]
+        ]
+    ],
+    ["C", [
+            [1, 4],
+            [2, 5],
+            [3, 6]
+        ]
+    ],
+    ["D", [
+            [1, 4],
+            [2, 5],
+            [3, 6],
+            [1, 4],
+            [2, 5],
+            [3, 6],
+            [1, 4],
+            [2, 5],
+            [3, 6]
+        ]
+    ]
+]);
 
-export default operationbreaker;
+
+// console.log(
+//     operationbreaker(
+//         "A*B+A*B", a
+//     )
+// );
+
+
+// console.log(
+//     operationbreaker(
+//         "A*B", a
+//     )
+// );
+
+
+
+// export default operationbreaker;
