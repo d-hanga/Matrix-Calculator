@@ -103,12 +103,17 @@ function App() {
         setMatrices(new Map([...matrices, [name, matrix]]));
     }
 
+    const createHandleDelete = (name) => {
+        return () => {setMatrices(new Map([...matrices].filter(([key]) => key !== name)))}
+    }
+
     useEditMode(edit);
 
     return (
         <div className="application">
             <div className={edit ? "inactive" : "active"}>
-                <NormalView 
+                <NormalView
+                    createHandleDelete={createHandleDelete}
                     activateEditMode={setEdit} 
                     matrices={matrices} 
                     handleMatrixCreation={handleMatrixCreation} 

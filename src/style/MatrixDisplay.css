@@ -1,4 +1,5 @@
 .full-matrix {
+    position: relative; /* Add this to position the delete button */
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -10,17 +11,31 @@
     background-color: white;
 }
 
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Position the button in the upper right corner */
+    background: none;
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px; /* Add some padding around the button */
+}
+
 .matrix-header {
     display: flex;
     align-items: center; /* Center items vertically */
     justify-content: flex-start; /* Aligns items to the left */
-    width: 100%;
+    width: calc(100% - 20px); /* Adjust width to account for delete button */
     margin-bottom: 10px;
+    margin-right: 20px; /* Reduce margin-right to create appropriate space */
 }
 
 .matrix-name {
     font-weight: bold;
     margin-right: 20px; /* Adds space between name and matrix */
+    white-space: nowrap; /* Prevents the name from being cut off */
 }
 
 .matrix {
@@ -30,6 +45,7 @@
     margin-top: 10px;
     margin-left: 5px;
     margin-right: 5px;
+    width: auto; /* Ensure the matrix table takes up available space */
 }
 
 .matrix td {
@@ -65,5 +81,5 @@
     padding: 10px;
     margin: 10px;
     background-color: white;
+    width: 100%; /* Ensure the matrix container takes up available space */
 }
-

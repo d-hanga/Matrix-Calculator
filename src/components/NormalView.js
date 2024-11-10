@@ -3,10 +3,10 @@ import MatricesHandling from './MatricesHandling';
 import MatrixOperations from './MatrixOperations';
 
 
-function NormalView({ activateEditMode, matrices, handleMatrixCreation, handleMatrixReset, saveMatrix }) {
+function NormalView({ activateEditMode, matrices, handleMatrixCreation, handleMatrixReset, saveMatrix, createHandleDelete }) {
     return (
         <div>
-            <MatrixList activateEditMode={activateEditMode} matrices={matrices} />
+            <MatrixList createHandleDelete={createHandleDelete} activateEditMode={activateEditMode} matrices={matrices} />
             <MatricesHandling handleMatrixReset={handleMatrixReset} handleMatrixCreation={handleMatrixCreation} />
             <MatrixOperations handleMatrixCreation={handleMatrixCreation} matrices={matrices} />
         </div>

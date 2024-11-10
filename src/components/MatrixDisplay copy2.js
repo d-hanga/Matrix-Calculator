@@ -1,9 +1,8 @@
 import "../style/MatrixDisplay.css";
 
-function MatrixDisplay({ name, matrix, buttonFunctioning, buttonName, handleDelete }) {
+function MatrixDisplay({ name, matrix, buttonFunctioning, buttonName }) {
     return (
         <div className="full-matrix">
-            <button onClick={handleDelete} className="delete-button">X</button>
             <div className="matrix-header">
                 <div className="matrix-name">{name}</div>
                 <div className="matrix-w-dim">
@@ -27,7 +26,6 @@ function MatrixDisplay({ name, matrix, buttonFunctioning, buttonName, handleDele
         </div>
     );
 }
-
 
 
 

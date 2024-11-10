@@ -109,19 +109,6 @@ function operationbreaker(raw, matrices) {
             //     foundoperations
             //         .slice(foundoperations.length)
             // )
-            const a = [
-                        params
-                            .slice(0, lasts[i] + 1),
-                        foundoperations
-                            .slice(0, lasts[i])
-                    ]
-            const b = [
-                    params
-                        .slice(lasts[i]+1),
-                    foundoperations
-                        .slice(lasts[i]+1)
-                ]
-
             return operations[foundoperations[lasts[i]]](
                 operationbreaker(
                     combinearrays(
@@ -190,35 +177,35 @@ function operationbreaker(raw, matrices) {
 //     )
 // ))
 
-const a = new Map([
-    ["A", [
-            [1],
-            [4]
-        ]
-    ],
-    ["B", [
-            [1, 4]
-        ]
-    ],
-    ["C", [
-            [1, 4],
-            [2, 5],
-            [3, 6]
-        ]
-    ],
-    ["D", [
-            [1, 4],
-            [2, 5],
-            [3, 6],
-            [1, 4],
-            [2, 5],
-            [3, 6],
-            [1, 4],
-            [2, 5],
-            [3, 6]
-        ]
-    ]
-]);
+// const a = new Map([
+//     ["A", [
+//             [1],
+//             [4]
+//         ]
+//     ],
+//     ["B", [
+//             [1, 4]
+//         ]
+//     ],
+//     ["C", [
+//             [1, 4],
+//             [2, 5],
+//             [3, 6]
+//         ]
+//     ],
+//     ["D", [
+//             [1, 4],
+//             [2, 5],
+//             [3, 6],
+//             [1, 4],
+//             [2, 5],
+//             [3, 6],
+//             [1, 4],
+//             [2, 5],
+//             [3, 6]
+//         ]
+//     ]
+// ]);
 
 
 // console.log(
@@ -236,4 +223,4 @@ const a = new Map([
 
 
 
-// export default operationbreaker;
+export default operationbreaker;

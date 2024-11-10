@@ -5,11 +5,11 @@ import mapmap from "../extras/map-handling";
 
 import MatrixNormalDisplay from "./MatrixNormalDisplay";
 
-function MatrixList({ activateEditMode, matrices }) {
+function MatrixList({ activateEditMode, matrices, createHandleDelete }) {
     return (
         <div className="matrix-list">
             {mapmap(matrices, (name, matrix) => (
-                <MatrixNormalDisplay activateEditMode={activateEditMode} name={name} matrix={matrix} key={name} />
+                <MatrixNormalDisplay handleDelete={createHandleDelete(name)} activateEditMode={activateEditMode} name={name} matrix={matrix} key={name} />
             ))}
         </div>
     );

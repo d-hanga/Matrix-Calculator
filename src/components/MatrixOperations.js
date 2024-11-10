@@ -38,6 +38,10 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
         handleMatrixCreation("result", result);
     };
 
+    const deleteResult = () => {
+        setResult("");
+    }
+
     let matrixnames = [];
     for (let [key, value] of matrices) {
         matrixnames.push(<option value={key}>{key}</option>);
@@ -72,7 +76,7 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
                 </form>
             </div>
             {result && 
-                (<MatrixResult handleMatrixCreation={handleMatrixCreation} matrix={result} activateEditMode={handleSave} className="matrix-operations__result" />)}
+                (<MatrixResult handleDelete={deleteResult} handleMatrixCreation={handleMatrixCreation} matrix={result} activateEditMode={handleSave} className="matrix-operations__result" />)}
         </div>
     );
 }

@@ -1,11 +1,11 @@
 import MatrixDisplay from "./MatrixDisplay";
 
-function MatrixNormalDisplay({ name, matrix, activateEditMode }) {
+function MatrixNormalDisplay({ name, matrix, activateEditMode, handleDelete }) {
     const handleClick = (event) => {
         activateEditMode(name);
     }
     return (
-        <MatrixDisplay name={name} matrix={matrix} buttonFunctioning={handleClick} buttonName="Edit" />
+        <MatrixDisplay handleDelete={handleDelete} name={name} matrix={matrix} buttonFunctioning={handleClick} buttonName="Edit" />
     );
 }
 
