@@ -18,6 +18,17 @@ class UnmergableDimension extends Error {
 }
 
 
+class NoSquareMatrix extends Error {
+    constructor(A, operation) {
+        super(
+            `Matrix must be square (nxn) for this operation (${operation}). (dim(A) = ${A.length}x${A[0].length})`
+        );
+        this.name = this.constructor.name;
+    }
+}
+
+
+
 
 // export { UnmatchingDimensions };
-module.exports = { UnmatchingDimensions, UnmergableDimension };
+module.exports = { UnmatchingDimensions, UnmergableDimension, NoSquareMatrix };

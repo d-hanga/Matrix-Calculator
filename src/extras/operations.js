@@ -1,5 +1,5 @@
 // require { UnmatchingDimensions } from "../errors/matrix.js";
-const { UnmatchingDimensions, UnmergableDimension } = require("../errors/matrix.js");
+const { UnmatchingDimensions, UnmergableDimension, NoSquareMatrix } = require("../errors/matrix.js");
 
 
 
@@ -31,27 +31,28 @@ function multiplication(A, B) {
 }
 
 // understand and remake it more efficiently
-function inversion(A) {
+function inversion(_A) {
+    const A = _A.map(row => [...row]);
     if (A.length !== A[0].length) {
-        throw new Error("Matrix must be square for inversion");
+        throw new NoSquareMatrix("Matrix must be square for inversion");
     }
-    const n = A.length;
-    const I = new Array(n).fill(0).map((row, i) => new Array(n).fill(0).map((el, j) => i === j ? 1 : 0));
-    for (let i = 0; i < n; i++) {
-        let pivot = A[i][i];
+    const len = A.length;
+    const I = new Array(len).fill(0).map((row, i) => new Array(len).fill(0).map((el, j) => i === j ? 1 : 0));
+    for (let i = 0; i < len; i++) {
+        const pivot = A[i][i];
         if (pivot === 0) {
             throw new Error("Matrix must be invertible");
         }
-        for (let j = 0; j < n; j++) {
+        for (let j = 0; j < len; j++) {
             A[i][j] /= pivot;
             I[i][j] /= pivot;
         }
-        for (let k = 0; k < n; k++) {
+        for (let k = 0; k < len; k++) {
             if (k === i) {
                 continue;
             }
             let factor = A[k][i];
-            for (let j = 0; j < n; j++) {
+            for (let j = 0; j < len; j++) {
                 A[k][j] -= factor * A[i][j];
                 I[k][j] -= factor * I[i][j];
             }
