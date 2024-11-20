@@ -44,7 +44,7 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
 
     let matrixnames = [];
     for (let [key, value] of matrices) {
-        matrixnames.push(<option value={key}>{key}</option>);
+        matrixnames.push(<option key={key} value={key}>{key}</option>);
     }
 
     return (

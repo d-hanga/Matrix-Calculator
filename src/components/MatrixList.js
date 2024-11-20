@@ -9,8 +9,8 @@ function MatrixList({ activateEditMode, matrices, createHandleDelete }) {
     return (
         <div className="matrix-list">
             {mapmap(matrices, (name, matrix) => (
-                <MatrixNormalDisplay handleDelete={createHandleDelete(name)} activateEditMode={activateEditMode} name={name} matrix={matrix} key={name} />
-            ))}
+                    <MatrixNormalDisplay key={name} handleDelete={createHandleDelete(name)} activateEditMode={activateEditMode} name={name} matrix={matrix} />
+                ))}
         </div>
     );
 }
