@@ -9,6 +9,7 @@
 - control tabs
 - do this: name + matrix and when it overflows keep it there above the matrix-scrolling thing +++ name should be closer, which now doesnt happen, bc the dimeensions take too much place and its like this <name> + (<dimensions> + <matrix>)
 - add export/import feature of the matrices
+- replace public files with own
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode
 
