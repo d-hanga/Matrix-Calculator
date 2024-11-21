@@ -1,44 +1,20 @@
 - dont make grid, copy the css from the image-query-searcher with matrices
 - blur alerts instead of normal site-alerts (everything blurs, red text pops up e.g.)
 - export/import
-- create placeholders for drop down fields => pay attention for the setting of the states
-- add keys to dropdowfields ????? (maybe only for names bc they can change)
-- make drop down fields ... (frogot what i wanted to do)
 - value prop for select fields?????
 - create form around buttons
 - add alert after editing if not already
 - make dropdownboxes be able to type into
-- in the calculation breaker: just check if I and T are included, and then just do both in any reihenfolge, so you dont have to check 4 cases, but just 2 (=> check if A.T^(-1) = A^(-1).T)
-  => then only check if T and I are on the end
 - whereever statechange and passing happens: dont pass anymore, instead write normal code which is executed when any change happens
-- add when doing this to a matrix: 1x3 => 1x1 => 1x3 the last data still remains => matrix stays intact
 - control tabs
-- make shadow around matrix-edit-w-dim (shadow was cut off)
 - do this: name + matrix and when it overflows keep it there above the matrix-scrolling thing +++ name should be closer, which now doesnt happen, bc the dimeensions take too much place and its like this <name> + (<dimensions> + <matrix>)
-- add export/import
+- add export/import feature of the matrices
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode
 
 
 
 fix:
-"""
-One of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it may break at any time.
-
-babel-preset-react-app is part of the create-react-app project, which
-is not maintianed anymore. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.
-"""
-
-
-
-
 """
 One of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
