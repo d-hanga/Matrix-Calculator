@@ -34,4 +34,5 @@ change dimensions from 3x4 to 5x4:\
 0 0 0 0 <= new empty cells = 0\
 
 The calculation input below the Operator/1st Matrix/2nd Matrix, can take any calculation possible: Important is: AT = Transpose of A; AI = Inverse of A\
-more complicated  problems are the inaccuracy of floats: take a random (invetable) Matrix and try: M/M. the outcome will be close to the identity matrix, but nor quite it; this will be solved with a fraction-system i'll build in later\
+Press  the enter key for the result.
+more complicated  problems are the inaccuracy of floats: take a random (invetable) Matrix and try: M/M. the outcome will be close to the identity matrix, but nor quite it; this will be solved with a fraction-system i'll build in later
