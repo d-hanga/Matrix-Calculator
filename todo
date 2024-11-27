@@ -1,4 +1,5 @@
-- fraction-system for inaccuracies; errores not with react-errors (calculations e.g.)
+- fix empty sting => NaN Problem in cells (don't use "" => "0", because you cant type in negative nrs or floats)errores not with react-errors (calculations e.g.)
+- fraction-system for inaccuracies
 - dont make grid, copy the css from the image-query-searcher with matrices
 - blur alerts instead of normal site-alerts (everything blurs, red text pops up e.g.)
 - export/import
