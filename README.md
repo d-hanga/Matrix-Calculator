@@ -18,10 +18,10 @@ Starts the Web-App; connect to 127.0.0.1:8000.
 Only numbers allowed yet.
 Error-Messages are React-Errors.
 If you change the dimensions of a matrix, it itself changes, but it keeps the old version in mind, which means, that if you shrink an array and resize it bigger, the old info will be kept:
-1 1 1 1
-1 1 1 1
-1 1 1 1
-1 1 1 1
+1 1 1 1 \\
+1 1 1 1 \\
+1 1 1 1 \\
+1 1 1 1 \\
 change dimensions from 4x4 to 3x4:
 1 1 1 1
 1 1 1 1
