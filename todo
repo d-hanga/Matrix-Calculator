@@ -1,3 +1,4 @@
+- fraction-system for inaccuracies; errores not with react-errors (calculations e.g.)
 - dont make grid, copy the css from the image-query-searcher with matrices
 - blur alerts instead of normal site-alerts (everything blurs, red text pops up e.g.)
 - export/import
@@ -10,6 +11,7 @@
 - do this: name + matrix and when it overflows keep it there above the matrix-scrolling thing +++ name should be closer, which now doesnt happen, bc the dimeensions take too much place and its like this <name> + (<dimensions> + <matrix>)
 - add export/import feature of the matrices
 - replace public files with own
+- variables
 
 x when tapping on one matrix, everything blures, it comes forward (centered + middle) in edit mode
 
