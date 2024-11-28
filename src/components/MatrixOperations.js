@@ -34,12 +34,29 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
     };
 
     const handleSave = () => {
-        console.log(result);
         handleMatrixCreation("result", result);
     };
 
     const deleteResult = () => {
         setResult("");
+    }
+
+    const submitInputCalculation = (e) => {
+        e.preventDefault();
+        const r = (
+            () => {
+                try {
+                    return operationbreaker(formula, matrices);
+                } catch (err) {
+                    return err;
+                }
+            }
+        )();
+        if (r instanceof Error) {
+            alert(`Invalid input: \n\n${r}`);
+            return;
+        }
+        setResult(r);
     }
 
     let matrixnames = [];
@@ -52,12 +69,12 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
             <div className="all-operations">
                 <div className="matrix-operations__container">
                     <select value={operation} onChange={e => {e.preventDefault(); setOperation(e.target.value)}} className={(operation === "") ? "matrix-operations-choice unchosen" : "matrix-operations-choice chosen"}>
-                        <option value={""} disabled>Operation</option>
-                        <option value="-------" disabled>---------</option>
-                        <option value="addition">Add</option>
-                        <option value="subtraction">Subtract</option>
-                        <option value="multiplication">Multiply</option>
-                        <option value="division">Divide</option>
+                        <option className="impossible-choice" value={""} disabled>Operation</option>
+                        <option className="impossible-choice" value="-------" disabled>---------</option>
+                        <option className="possible-choice" value="addition">Add</option>
+                        <option className="possible-choice" value="subtraction">Subtract</option>
+                        <option className="possible-choice" value="multiplication">Multiply</option>
+                        <option className="possible-choice" value="division">Divide</option>
                     </select>
                     <select value={matrix1} onChange={(e) => setMatrix1(e.target.value)} className={(matrix1 === "") ? "matrix-input-1 unchosen" : "matrix-input-1 chosen"} >
                         <option className="impossible-choice" value={""} disabled>1st Matrix</option>
@@ -71,7 +88,7 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
                     </select>
                     <button onClick={handleOperation} className="matrix-operations__button">Calculate</button>
                 </div>
-                <form className="operation-input" onSubmit={e => {e.preventDefault(); const gg = operationbreaker(formula, matrices); console.log(gg); setResult(gg);}}>
+                <form className="operation-input" onSubmit={submitInputCalculation}>
                     <input onChange={e => {setFormula(e.target.value)}} value={formula} />
                     <button className="matrix-operations__button">Submit</button>
                 </form>

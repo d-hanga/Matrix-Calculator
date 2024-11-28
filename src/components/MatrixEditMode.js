@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../style/MatrixEditMode.css";
 import { cloneMatrix, extendMatrix } from "../extras/matrix-handling";
+import { InvalidNumber } from "../errors/formating";
 
 function MatrixEditMode({ deactivateEditMode, matrix, name }) {
     const [changed, setChanged] = useState(cloneMatrix(matrix));
@@ -8,7 +9,30 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        deactivateEditMode(changed);
+        const parsedMatrix = (() => {
+            try {
+                return changed.map(row => row.map(cell => {
+                    if (typeof cell === "number") {
+                        return cell;
+                    }
+                    if (/^-?\d+$/.test(cell.slice(1)) && cell[0] === ",") {
+                        return parseFloat(".".concat(cell.slice(1)));
+                    } else if (/^-?\d+$/.test(cell.slice(2)) && cell[0] === "-" && cell[1] === ",") {
+                        return parseFloat("-.".concat(cell.slice(2)));
+                    } else if  (!(/^-?(\d+([\.,]\d*)?|\.[\d]+|[\.,]\d+)$/).test(cell)) {
+                        throw new InvalidNumber(cell);
+                    }
+                    return parseFloat(cell);
+                }));
+            } catch (err) {
+                return err;
+            }
+        })();
+        if (parsedMatrix instanceof Error) {
+            alert(`${parsedMatrix}`);
+            return;
+        }
+        deactivateEditMode(parsedMatrix);
     };
 
     const handleChangeDimension0 = (event) => {
@@ -39,7 +63,7 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
                 extendMatrix(
                     changed.map((row, rowIndex) =>
                         rowIndex === i
-                            ? row.map((cell, colIndex) => (colIndex === j ? parseInt(event.target.value) : cell))
+                            ? row.map((cell, colIndex) => (colIndex === j ? event.target.value : cell))
                             : row
                     ),
                     ...dimensions
