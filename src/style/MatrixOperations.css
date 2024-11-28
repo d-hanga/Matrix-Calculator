@@ -18,28 +18,33 @@
     padding: 20px;
 }
 
-.matrix-operations__container {
+.matrix-operations__container,
+.operation-input {
     display: flex;
     align-items: center;
-    gap: 10px;
     justify-content: center;
+    gap: 10px;
 }
 
 .matrix-input-1,
 .matrix-input-2,
 .matrix-operations-choice {
-    width: 200px; /* Increase the width */
-    padding: 12px; /* Increase the padding */
+    width: 200px;
+    padding: 12px;
     font-size: 16px;
-    color: #949494;
     border: 1px solid #f0f0f0;
     border-radius: 4px;
     cursor: pointer;
     transition: border-color 0.2s, box-shadow 0.2s;
     appearance: none; /* Remove default dropdown arrow */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
+}
+
+.chosen {
+    color: #000000;
+}
+
+.unchosen {
+    color: #949494;
 }
 
 .matrix-input-1:hover,
@@ -78,7 +83,7 @@
 }
 
 .operation-input input {
-    width: 100%;
+    flex-grow: 1; /* Ensures input takes up most space */
     padding: 8px;
     margin: 5px 0;
     box-sizing: border-box;
@@ -91,4 +96,12 @@
     border-color: #66afe9;
     outline: none;
     box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.impossible-choice {
+    color: #949494; /* Change to grey when selected */
+}
+
+.possible-choice {
+    color: #000000; /* Default grey color */
 }
