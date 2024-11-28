@@ -15,7 +15,7 @@ function extendMatrix(matrix, dim1, dim2) {
             if (i < matrix.length && j < matrix[0].length) {
                 extended[i][j] = matrix[i][j];
             } else {
-                extended[i][j] = 0;
+                extended[i][j] = "";
             }
         }
     }

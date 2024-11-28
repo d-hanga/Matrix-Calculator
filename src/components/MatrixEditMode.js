@@ -11,11 +11,13 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
         event.preventDefault();
         const parsedMatrix = (() => {
             try {
-                return changed.map(row => row.map(cell => {
+                return extendMatrix(changed, dimensions[0], dimensions[1]).map(row => row.map(cell => {
                     if (typeof cell === "number") {
                         return cell;
                     }
-                    if (/^-?\d+$/.test(cell.slice(1)) && cell[0] === ",") {
+                    if (cell === "") {
+                        return 0;
+                    } else if (/^-?\d+$/.test(cell.slice(1)) && cell[0] === ",") {
                         return parseFloat(".".concat(cell.slice(1)));
                     } else if (/^-?\d+$/.test(cell.slice(2)) && cell[0] === "-" && cell[1] === ",") {
                         return parseFloat("-.".concat(cell.slice(2)));
@@ -40,9 +42,9 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
             setDimensions([0, dimensions[1]]);
         } else if (!isNaN(parseInt(event.target.value))) {
             setDimensions([parseInt(event.target.value), dimensions[1]]);
-            if (event.target.value > dimensions[0]) {
-                setChanged(extendMatrix(changed, parseInt(event.target.value), dimensions[1]));
-            }
+            // if (event.target.value > dimensions[0]) {
+            //     setChanged(extendMatrix(changed, parseInt(event.target.value), dimensions[1]));
+            // }
         }
     };
 
@@ -51,23 +53,22 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
             setDimensions([dimensions[0], 0]);
         } else if (!isNaN(parseInt(event.target.value))) {
             setDimensions([dimensions[0], parseInt(event.target.value)]);
-            if (event.target.value > dimensions[1]) {
-                setChanged(extendMatrix(changed, dimensions[0], parseInt(event.target.value)));
-            }
+            // if (event.target.value > dimensions[1]) {
+            //     setChanged(extendMatrix(changed, dimensions[0], parseInt(event.target.value)));
+            // }
         }
     };
 
     const handleValueChangeCreator = (i, j) => {
         return (event) => {
+            const newmatrix = extendMatrix(changed, dimensions[0], dimensions[1]);
             setChanged(
-                extendMatrix(
-                    changed.map((row, rowIndex) =>
-                        rowIndex === i
-                            ? row.map((cell, colIndex) => (colIndex === j ? event.target.value : cell))
-                            : row
-                    ),
-                    ...dimensions
-                )
+                newmatrix.map((row, rowIndex) =>
+                    rowIndex === i
+                        ? row.map((cell, colIndex) => (colIndex === j ? event.target.value : cell))
+                        : row
+                ),
+                ...dimensions
             );
         };
     };
@@ -85,7 +86,7 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
                         </div>
                         <table className="matrix-edit">
                             <tbody>
-                                {changed.map((row, i) => (
+                                {extendMatrix(changed, dimensions[0], dimensions[1]).map((row, i) => (
                                     i < dimensions[0] && (
                                         <tr key={i}>
                                             {row.map((cell, j) => (
