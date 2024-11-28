@@ -1,11 +1,13 @@
-import MatrixList from './MatrixList';
-import MatricesHandling from './MatricesHandling';
-import MatrixOperations from './MatrixOperations';
+import MatrixList from "./MatrixList";
+import MatricesHandling from "./MatricesHandling";
+import MatrixOperations from "./MatrixOperations";
+import ImExport from "./ImExport";
 
 
-function NormalView({ activateEditMode, matrices, handleMatrixCreation, handleMatrixReset, saveMatrix, createHandleDelete }) {
+function NormalView({ importMatrices, activateEditMode, matrices, handleMatrixCreation, handleMatrixReset, createHandleDelete }) {
     return (
         <div>
+            <ImExport matrices={matrices} importMatrices={importMatrices} />
             <MatrixList createHandleDelete={createHandleDelete} activateEditMode={activateEditMode} matrices={matrices} />
             <MatricesHandling handleMatrixReset={handleMatrixReset} handleMatrixCreation={handleMatrixCreation} />
             <MatrixOperations handleMatrixCreation={handleMatrixCreation} matrices={matrices} />

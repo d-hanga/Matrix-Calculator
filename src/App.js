@@ -5,6 +5,7 @@ import str2num from "./extras/convert2numifpossiple";
 import NormalView from "./components/NormalView";
 import { useEffect, useState } from 'react';
 import MatrixEditMode from "./components/MatrixEditMode";
+import { equalMatrices } from "./extras/matrix-handling";
 
 const DEFAULT_MATRICES = new Map([]);
 
@@ -60,22 +61,49 @@ function App() {
     }
 
     const handleMatrixCreation = (name, matrix) => {
-        console.log(matrix)
         if (matrices.has(name)) {
             alert("Matrix already exists");
             return;
         }
-
         if (name === "") {
             alert("Matrix name cannot be empty");
             return;
         }
-        
         setMatrices(new Map([...matrices, [name, matrix]]));
     }
 
     const createHandleDelete = (name) => {
         return () => {setMatrices(new Map([...matrices].filter(([key]) => key !== name)))}
+    }
+
+    const importMatrices = (string) => {
+        let result = new Map(matrices);
+        const json = (
+            () => {
+                try {
+                    return JSON.parse(string);
+                } catch (e) {
+                    alert("Invalid JSON");
+                    return;
+                }
+            }
+        )();
+        if (json === undefined) {
+            return;
+        }
+        const same = [];
+        for (let [key, value] of Object.entries(json)) {
+            if (equalMatrices(value, matrices.get(key))) {
+                same.push(key);
+            }
+            if ((!matrices.has(key)) || (!equalMatrices(value, matrices.get(key)) && window.confirm(`Matrix "${key}" already exists. \n Replace?`))) {
+                result.set(key, value);
+            }
+        }
+        if (same.length > 0) {
+            alert(`Matrices ${same.join(", ")} are the same matrix as already created.`);
+        }
+        setMatrices(result);
     }
 
     useEditMode(edit);
@@ -88,7 +116,8 @@ function App() {
                     activateEditMode={setEdit} 
                     matrices={matrices} 
                     handleMatrixCreation={handleMatrixCreation} 
-                    handleMatrixReset={handleMatrixReset} 
+                    handleMatrixReset={handleMatrixReset}
+                    importMatrices={importMatrices}
                 />
             </div>
             {edit && <MatrixEditMode deactivateEditMode={deactivateEditMode} name={edit} matrix={matrices.get(edit)} />}

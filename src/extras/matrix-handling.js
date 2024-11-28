@@ -27,4 +27,25 @@ function cloneMatrix(matrix) {
     return matrix.map(row => [...row]);
 }
 
-export { extendMatrix, cloneMatrix }
+
+function equalMatrices(matrix1, matrix2) {
+    if (matrix1 === matrix2) {
+        return true;
+    }
+    if (matrix1 === undefined || matrix2 === undefined || matrix1 === null || matrix2 === null || matrix1.length !== matrix2.length) {
+        return false;
+    }
+    for (let i = 0; i < matrix1.length; i++) {
+        if (matrix1[i].length !== matrix2[i].length) {
+            return false;
+        }
+        for (let j = 0; j < matrix1[i].length; j++) {
+            if (matrix1[i][j] !== matrix2[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+export { equalMatrices, extendMatrix, cloneMatrix }

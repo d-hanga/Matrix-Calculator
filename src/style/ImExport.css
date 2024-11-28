@@ -1,0 +1,45 @@
+.imexport-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    width: 100%; /* Take full width of the container */
+    position: relative;
+}
+
+.file-input {
+    display: none;
+}
+
+.import-btn {
+    background-color: #f0f0f0; /* Light grey */
+    color: #333; /* Darker text for readability */
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Cleaner font */
+    font-weight: 400; /* Lighter weight for subtlety */
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Subtle shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-left: auto; /* This ensures the button is pushed to the right */
+}
+
+.import-btn:hover {
+    background-color: #e0e0e0; /* Slightly darker grey on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Softer shadow on hover */
+}
+
+.import-btn:focus {
+    outline: none;
+}
+
+.input-group input[type="file"]:focus + .import-btn {
+    background-color: #e0e0e0;
+}
