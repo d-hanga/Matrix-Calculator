@@ -19,7 +19,7 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
                         return parseFloat(".".concat(cell.slice(1)));
                     } else if (/^-?\d+$/.test(cell.slice(2)) && cell[0] === "-" && cell[1] === ",") {
                         return parseFloat("-.".concat(cell.slice(2)));
-                    } else if  (!(/^-?(\d+([\.,]\d*)?|\.[\d]+|[\.,]\d+)$/).test(cell)) {
+                    } else if  (!(/^-?(\d+([.,]\d*)?|.[\d]+|[.,]\d+)$/).test(cell)) {
                         throw new InvalidNumber(cell);
                     }
                     return parseFloat(cell);
