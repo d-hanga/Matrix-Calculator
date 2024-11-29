@@ -16,11 +16,3 @@ function NormalView({ importMatrices, activateEditMode, matrices, handleMatrixCr
 }
 
 export default NormalView;
-
-
-
-/*
-newMap.forEach((value, key) => {
-  console.log(`${key}: ${value}`);
-});
-*/

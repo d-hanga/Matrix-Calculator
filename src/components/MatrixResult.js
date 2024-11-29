@@ -12,10 +12,4 @@ function MatrixResult({ matrix, handleMatrixCreation, handleDelete }) {
 
 
 
-// explain what is happening here
-// table is a HTML element that is used to display data in a tabular format.
-// tbody is a HTML element that is used to group the body content in a table.
-// tr is a HTML element that defines a row in a table.
-// td is a HTML element that defines a cell in a table.
-
 export default MatrixResult;

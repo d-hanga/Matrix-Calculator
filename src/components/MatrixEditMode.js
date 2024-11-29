@@ -42,9 +42,6 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
             setDimensions([0, dimensions[1]]);
         } else if (!isNaN(parseInt(event.target.value))) {
             setDimensions([parseInt(event.target.value), dimensions[1]]);
-            // if (event.target.value > dimensions[0]) {
-            //     setChanged(extendMatrix(changed, parseInt(event.target.value), dimensions[1]));
-            // }
         }
     };
 
@@ -53,9 +50,6 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
             setDimensions([dimensions[0], 0]);
         } else if (!isNaN(parseInt(event.target.value))) {
             setDimensions([dimensions[0], parseInt(event.target.value)]);
-            // if (event.target.value > dimensions[1]) {
-            //     setChanged(extendMatrix(changed, dimensions[0], parseInt(event.target.value)));
-            // }
         }
     };
 
@@ -80,20 +74,18 @@ function MatrixEditMode({ deactivateEditMode, matrix, name }) {
                     <div className="matrix-edit-name">{name}</div>
                     <div className="matrix-edit-w-dim">
                         <div className="matrix-edit-dimension">
-                            <input className="matrix-edit-dimension-1" onBlur={handleChangeDimension0} onChange={handleChangeDimension0} value={dimensions[0]} />
+                            <input className="matrix-edit-dimension-1" onChange={handleChangeDimension0} value={dimensions[0]} />
                             x
-                            <input className="matrix-edit-dimension-2" onBlur={handleChangeDimension1} onChange={handleChangeDimension1} value={dimensions[1]} />
+                            <input className="matrix-edit-dimension-2" onChange={handleChangeDimension1} value={dimensions[1]} />
                         </div>
                         <table className="matrix-edit">
                             <tbody>
                                 {extendMatrix(changed, dimensions[0], dimensions[1]).map((row, i) => (
-                                    i < dimensions[0] && (
-                                        <tr key={i}>
-                                            {row.map((cell, j) => (
-                                                j < dimensions[1] && <td key={j}><input value={changed[i][j]} onChange={handleValueChangeCreator(i, j)} /></td>
-                                            ))}
-                                        </tr>
-                                    )
+                                    <tr key={i}>
+                                        {row.map((cell, j) => 
+                                            <td key={j}><input value={cell} onChange={handleValueChangeCreator(i, j)} /></td>
+                                        )}
+                                    </tr>
                                 ))}
                             </tbody>
                         </table>

@@ -10,7 +10,7 @@ function ImExport({ importMatrices, matrices }) {
             const reader = new FileReader();
             reader.onload = (e) => {
                 importMatrices(e.target.result);
-                setFile(null); // Deselect the file using useState
+                setFile(null);
             };
             reader.onerror = (error) => alert("Error reading file: " + error);
             reader.readAsText(uploadedFile);
