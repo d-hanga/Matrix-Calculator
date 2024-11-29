@@ -1,14 +1,14 @@
 .imexport-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Align items to the right */
     align-items: center;
     margin: 20px;
 }
 
-.input-group {
+.import-group,
+.export-group {
     display: flex;
     align-items: center; /* Align items vertically centered */
-    width: 100%; /* Take full width of the container */
     position: relative;
 }
 
@@ -16,10 +16,12 @@
     display: none;
 }
 
+.export-btn,
 .import-btn {
     background-color: #f0f0f0; /* Light grey */
     color: #333; /* Darker text for readability */
     padding: 8px 16px;
+    border: none; /* Remove any border */
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
@@ -28,18 +30,21 @@
     text-align: center;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); /* Subtle shadow */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    margin-left: auto; /* This ensures the button is pushed to the right */
+    margin-left: 10px; /* Add some space between buttons */
 }
 
+.export-btn:hover,
 .import-btn:hover {
     background-color: #e0e0e0; /* Slightly darker grey on hover */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Softer shadow on hover */
 }
 
+.export-btn:focus,
 .import-btn:focus {
     outline: none;
 }
 
-.input-group input[type="file"]:focus + .import-btn {
+.import-group input[type="file"]:focus + .import-btn,
+.export-group + .export-btn {
     background-color: #e0e0e0;
 }

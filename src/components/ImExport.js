@@ -1,7 +1,8 @@
+import exportasjson from "../extras/imexport";
 import "../style/ImExport.css";
 import { useState } from 'react';
 
-function ImExport({ importMatrices }) {
+function ImExport({ importMatrices, matrices }) {
     const [file, setFile] = useState(null);
     const handleUpload = (event) => {
         const uploadedFile = event.target.files[0];
@@ -18,7 +19,12 @@ function ImExport({ importMatrices }) {
 
     return (
         <div className="imexport-container">
-            <div className="input-group">
+            <div className="export-group">
+                <button className="export-btn" onClick={(e) => {exportasjson(matrices)}}>
+                    Export
+                </button>
+            </div>
+            <div className="import-group">
                 <input
                     id="file"
                     type="file"

@@ -1,6 +1,5 @@
 - dont make grid, copy the css from the image-query-searcher with matrices
 - blur alerts instead of normal site-alerts (everything blurs, red text pops up e.g.)
-- export/import
 - value prop for select fields?????
 - create form around buttons
 - add alert after editing if not already
