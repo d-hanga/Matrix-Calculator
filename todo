@@ -1,4 +1,5 @@
 - dont make grid, copy the css from the image-query-searcher with matrices
+- in app, targeting is used => change that!!!!!!!!!!!!!
 - blur alerts instead of normal site-alerts (everything blurs, red text pops up e.g.)
 - value prop for select fields?????
 - create form around buttons
