@@ -1,40 +1,14 @@
 import { useState } from "react";
 import "../style/MatrixEditMode.css";
 import { cloneMatrix, extendMatrix } from "../extras/matrix-handling";
-import { InvalidNumber } from "../errors/formating";
 
 function MatrixEditMode({ deactivateEditMode, matrix, name }) {
     const [changed, setChanged] = useState(cloneMatrix(matrix));
     const [dimensions, setDimensions] = useState([matrix.length, matrix[0].length]);
 
     const handleSubmit = (event) => {
+        deactivateEditMode(changed, dimensions);
         event.preventDefault();
-        const parsedMatrix = (() => {
-            try {
-                return extendMatrix(changed, dimensions[0], dimensions[1]).map(row => row.map(cell => {
-                    if (typeof cell === "number") {
-                        return cell;
-                    }
-                    if (cell === "") {
-                        return 0;
-                    } else if (/^-?\d+$/.test(cell.slice(1)) && cell[0] === ",") {
-                        return parseFloat(".".concat(cell.slice(1)));
-                    } else if (/^-?\d+$/.test(cell.slice(2)) && cell[0] === "-" && cell[1] === ",") {
-                        return parseFloat("-.".concat(cell.slice(2)));
-                    } else if  (!(/^-?(\d+([.,]\d*)?|.[\d]+|[.,]\d+)$/).test(cell)) {
-                        throw new InvalidNumber(cell);
-                    }
-                    return parseFloat(cell);
-                }));
-            } catch (err) {
-                return err;
-            }
-        })();
-        if (parsedMatrix instanceof Error) {
-            alert(`${parsedMatrix}`);
-            return;
-        }
-        deactivateEditMode(parsedMatrix);
     };
 
     const handleChangeDimension0 = (event) => {
