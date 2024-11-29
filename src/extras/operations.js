@@ -1,9 +1,7 @@
-// require { UnmatchingDimensions } from "../errors/matrix.js";
 const { UnmatchingDimensions, UnmergableDimension, NoSquareMatrix } = require("../errors/matrix.js");
 
 
 
-// EXTEND OPERATIONS FOR VARIABLE AND THEN FOR ...
 
 
 function addition(A, B) {
@@ -30,7 +28,6 @@ function multiplication(A, B) {
     return result.map((row, i) => row.map((el, j) => A[i].reduce((acc, cur, k) => acc + cur * B[k][j], 0)));
 }
 
-// understand and remake it more efficiently
 function inversion(_A) {
     const A = _A.map(row => [...row]);
     if (A.length !== A[0].length) {
@@ -72,7 +69,6 @@ function transposition(A) {
 }
 
 
-// export { add, subtract, multiply, inverse, division, transpose };
 module.exports = { addition, subtraction, multiplication, inversion, division, transposition };
 
 
