@@ -60,7 +60,7 @@ function MatrixOperations({ matrices, handleMatrixCreation }) {
     }
 
     let matrixnames = [];
-    for (let [key, value] of matrices) {
+    for (let [key, ] of matrices) {
         matrixnames.push(<option key={key} className={"possible-choice"} value={key}>{key}</option>);
     }
 

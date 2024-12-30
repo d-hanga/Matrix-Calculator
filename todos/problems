@@ -1,0 +1,2 @@
+ - non-react-style-code: document.body.classList in App.js
+    hard to fix, because stating isn't possible in the body where unscrollability is set

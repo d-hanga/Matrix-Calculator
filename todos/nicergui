@@ -1,0 +1,22 @@
+- make better grids:
+    - create css-grid/width-grid which has the width of N and is scrollable if too long (test if it looks good)
+
+- blur-alerts:
+    - change browser-alert to this: whole scren blurs, unscrolable, etc. + error message on top (like edit mode)
+
+- input-dropboxes
+    - more complicated: has to be either made manually or with help of an other library
+
+- tabs-controlling
+    - control tab-pressing to be like this:
+        - non-edit-mode: tabbing through the matrices, operations, etc.
+        - edit-mode: tabbing through each cell of the matrix ONLY
+    - can be either done with a library or manually (with useState from 0 to N) and if state is e.g. 2, matrix 2/cell 2 is selected (do with focus={state == 2} or sth like that)
+
+- overflow in edit-mode
+    - matrix-name (left) and matrix-dimensions (on top) should remain there, only the cells should be scrollable
+
+- in edit-mode:cname should be closer, which now doesnt happen, bc the dimeensions take too much place and its like this <name> + (<dimensions> + <matrix>)
+
+- dark-mode
+    - create a dark mode, which can be toggled with a button
