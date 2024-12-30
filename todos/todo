@@ -1,3 +1,4 @@
+- !!!FIX: dimension change from 500 to 300 doesn't work by just deletig the 3, bc: 500 (=> 00) => 0 => (30) => 3 => 300!!!
 - value prop for select fields?????
 - create form around buttons
 - replace public files with own
